@@ -13,8 +13,7 @@ The following configuration can be tweaked to your needs, it includes the follow
     1. Currently Benthos doesn’t decode timestamps in a usable way, so we’re handwaving them away for now!
 3. Insert the values into a table in Postgres, creating that table if it doesn’t exist.
 
-```json
-
+```yaml
 http:
   enabled: true
   address: 0.0.0.0:4195
