@@ -2,7 +2,7 @@
 # Getting Started with indexed.xyz Data
 > 🚧 **We're still validating the dataset.** 🚧
 >
-> When using this dataset in its current form, be aware that it's not yet finalized.
+> When using this dataset in its current form, be aware that it's not yet finalized. Check out our [FAQ](FAQ.md) before getting started.
 
 First, you should have a look at the documentation for the [object layout](schema.md) we're using in R2, as well as the schema of the Parquet files.
 
