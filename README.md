@@ -18,4 +18,4 @@ This section is small today, but we'd love you to add any tools you're using or 
 - [Benthos + NeonDB + Hasura](benthos_postgres_hasura.md): A start to finish data processing pipeline in the clouds 🌥️!
 - [Get up and running fast with our friends at Rill](https://rilldata.com/indexed-xyz), a hosted analytics tool based on DuckDB. It's cool.
 
-Have some ideas for more? Open an issue, a pull request, or [let us know via email](mailto:support@goldsky.com)!
+Have some ideas for more? Start a [discussion](https://github.com/indexed-xyz/docs/discussions), open an issue, a pull request, or [let us know via email](mailto:support@goldsky.com)! There's no wrong way to get involved. Ok, there's probably a wrong way, but we'll let you know if that happens 💔.
