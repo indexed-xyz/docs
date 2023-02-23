@@ -9,8 +9,7 @@ First, you’ll need to install Benthos as described [here](https://www.benthos.
 The following configuration can be tweaked to your needs, it includes the following steps:
 
 1. Pull the data for a specific smart contract from the indexed.xyz R2 container using the S3 API. Make sure to edit the endpoint URL to include the correct prefix for the smart contract & event you’re interested in. For this example, we're using the [Bored Ape Yacht Club](https://etherscan.io/address/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d)'s contract `0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d`.
-2. Maps the decoded parquet files into usable variables
-    1. Currently Benthos doesn’t decode timestamps in a usable way, so we’re handwaving them away for now!
+2. Maps the decoded parquet files into usable variables, pulling one of the nested fields into separate columns for ease of use.
 3. Insert the values into a table in Postgres, creating that table if it doesn’t exist.
 
 ```yaml
