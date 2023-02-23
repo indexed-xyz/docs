@@ -56,5 +56,5 @@ SELECT * FROM 'ethereum_decoded_logs_v1.0.0_partition_key=00_dt=2021_part-3acd09
 
 Some caveats to keep in mind:
 
-- We are aware of some event data that is incompletely or incorrectly decoded, if you run into anything, [let us know](mailto:support@goldsky.com).
+- We're still validating this dataset.
 - Though the prefix key we use is based on an all-lowercased address, and md5 digest, the addresses within the parquet files do not have a consistent case in all the fields.
