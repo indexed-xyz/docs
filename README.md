@@ -5,7 +5,7 @@ First, you should have a look at the documentation for the [object layout](schem
 
 If you want to get started right away, the quickest way is with the [Goldsky CLI tool](https://docs.goldsky.com/references/cli).
 
-This repo will document additional use cases and provide ways to access and use the data, especially if you want to integrate this data into a data pipeline.
+This repo will document additional use cases and provide ways to access and use the data, especially if you want to get an idea of what you can do with this data.
 
 ## Downloading the Data
 
