@@ -19,6 +19,7 @@ This repo will document additional use cases and provide ways to access and use 
 
 This section is small today, but we'd love you to add any tools you're using or improved ways to access and use the [indexed.xyz](https://indexed.xyz) data!
 
+- [DuckDB and YouPlot](duckdb.md), a light weight command line starter guide.
 - [Benthos + NeonDB + Hasura](benthos_postgres_hasura.md): A start to finish data processing pipeline in the clouds 🌥️!
 - [Get up and running fast with our friends at Rill](https://rilldata.com/indexed-xyz), a hosted analytics tool based on DuckDB. It's cool.
 
