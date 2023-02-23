@@ -17,4 +17,4 @@ This section is small today, but we'd love you to add any tools you're using or 
 
 - [Benthos + NeonDB + Hasura](benthos_postgres_hasura.md): A start to finish data processing pipeline in the clouds 🌥️!
 
-Have some ideas for more? [Let us know](mailto:support@goldsky.com)!
+Have some ideas for more? Open an issue, a pull request, or [let us know via email](mailto:support@goldsky.com)!
