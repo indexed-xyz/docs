@@ -6,7 +6,7 @@ The prefix structure for data in R2 is:
 
 `s3://indexed-xyz/<chain>/(decoded|raw)/logs/v1.0.0/partition_key=<XX>/dt=<YYYY>`
 
-For our technical preview, the only chain is ethereum (without the angle brackets), though we will be expanding that as we go, if there's a chain you would like to see, shoot us an [email](mailto:support@goldsky.com) and we'll consider adding it.
+For now, the only chain avcailable is ethereum (without the angle brackets), though we will be expanding that as we go, if there's a chain you would like to see, shoot us an [email](mailto:support@goldsky.com) and we'll consider adding it.
 
 You'll probably want the decoded files, as that's what this document describes.
 
