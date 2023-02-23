@@ -1,6 +1,4 @@
-# Documentation for Getting Up and Running w/ Indexed.xyz Data
-
-## Getting Started with indexed.xyz Data
+# Getting Started with indexed.xyz Data
 
 First, you should have a look at the documentation for the [object layout](schema.md) we're using in R2, as well as the schema of the Parquet files.
 
