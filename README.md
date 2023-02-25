@@ -10,7 +10,7 @@
 
 > When using this dataset in its current form, be aware that it's not yet finalized. Check out our [FAQ](FAQ.md) before getting started.
 
-The Indexed Dataset is a public domain, [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/) licensed dataset for doing analysis on near real-time data on blockchains. The dataset is backed an alliance of web3 and cloud organizations with the goal of providing a way to easily analyze data from your laptop or servers without being locked into any specific cloud.
+The Indexed Dataset is a permanently free, public domain, [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/) licensed dataset for doing analysis on near real-time data on blockchains. The dataset is backed an alliance of web3 and cloud organizations with the goal of providing a way to easily analyze data from your laptop or servers without being locked into any specific cloud.
 
 The data is kept up to date with the goal of under ten minutes refresh. While not real-time enough for gaming use-cases, it is fast enough to support a wide range of analyses and features. 
 
@@ -58,19 +58,20 @@ Our goal is to make Indexed the cleanest and easiest to use web3 data source pos
 
 With the community's help, we will implement a process where we start decoding as many contracts as possible. 
 
-** Usable Technical Preview (V1) **
--[x] Blocks 
--[x] Transactions 
--[x] Logs
--[x] Token (ERC20) and NFT (ERC721/1155) Decoded Logs
--[ ] Initial set of Custom Contract Decoded Logs (ie. Defi, Game, contracts)
+**Usable Technical Preview (V1)**
 
-** V2 **
--[ ] A process to take community requests for decoding, with backfilling.
--[ ] Regular raw data backups to Arweave for decentralization
-
-** V3 **
--[ ] Repo with validation scripts for the public to run easily on the cloud
--[ ] Iceberg support so reorgs can be easily detected and invalidated, along with additional partitions.
+- [x] Blocks 
+- [x] Transactions 
+- [x] Logs
+- [x] Token (ERC20) and NFT (ERC721/1155) Decoded Logs
+- [ ] Initial set of Custom Contract Decoded Logs (ie. Defi, Game, contracts)
 
 
+
+**V2**
+- [ ] A process to take community requests for decoding, with backfilling.
+- [ ] Regular raw data backups to Arweave for decentralization
+
+**V3**
+- [ ] Repo with validation scripts for the public to run easily on the cloud
+- [ ] Iceberg support so reorgs can be easily detected and invalidated, along with additional partitions.
