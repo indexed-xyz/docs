@@ -2,7 +2,7 @@
 
 ## Installation
 
-Make sure you install DuckDB first by following their guide [here](https://duckdb.org/#quickinstall). If you are using Homebrew on macOS, you can also install it with `brew`.
+Make sure you install DuckDB first by following their guide [here](https://duckdb.org/#quickinstall). If you're on macOS, we recommend using [Homebrew](https://docs.brew.sh/Installation), you can install duckdb with the following terminal command: `brew install duckdb`
 
 ## Download Parquet Files
 
