@@ -1,0 +1,52 @@
+version: '3.6'
+services:
+  benthos: 
+    image: jeffail/benthos:4
+    restart: always
+    ports:
+      - "4195:4195"
+    volumes:
+      - ./benthos.yaml:/benthos.yaml
+    command: --config /benthos.yaml
+  target-postgres:
+    image: postgres:15
+    restart: always
+    ports: 
+      - "5432:5432"
+    volumes:
+    - target_db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+  postgres:
+    image: postgres:15
+    restart: always
+    volumes:
+    - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+  graphql-engine:
+    image: hasura/graphql-engine:v2.16.1
+    ports:
+    - "8080:8080"
+    depends_on:
+    - "postgres"
+    - "target-postgres"
+    restart: always
+    environment:
+      ## postgres database to store Hasura metadata
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
+      ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@target-postgres:5432/postgres
+      HASURA_TRACK_TABLES: public.events
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      ## uncomment next line to run console offline (i.e load console assets from server instead of CDN)
+      # HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets
+      ## uncomment next line to set an admin secret
+      # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+volumes:
+  target_db_data:
+  db_data:

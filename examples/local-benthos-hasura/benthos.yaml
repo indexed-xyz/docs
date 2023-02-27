@@ -1,0 +1,108 @@
+http:
+  enabled: true
+  address: 0.0.0.0:4195
+  root_path: /benthos
+  debug_endpoints: false
+  cert_file: ""
+  key_file: ""
+  cors:
+    enabled: false
+    allowed_origins: []
+  basic_auth:
+    enabled: false
+    realm: restricted
+    username: ""
+    password_hash: ""
+    algorithm: sha256
+    salt: ""
+input:
+  label: ""
+  aws_s3:
+    bucket: "indexed-xyz"
+    region: "auto"
+    prefix: "ethereum/decoded/logs/v1.0.0/partition_key=9d/"
+    endpoint: "https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com"
+    credentials:
+      id: 43c31ff797ec2387177cabab6d18f15a
+      secret: afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645fb284cf7
+buffer:
+  none: {}
+pipeline:
+  threads: -1
+  processors:
+    - parquet_decode:
+        byte_array_as_string: true
+    - mapping: |
+         mapped.to_address = this.event_params.list.index(0).element.string()
+         mapped.from_address = this.event_params.list.index(1).element.string()
+         mapped.value = this.event_params.list.index(2).egement.string()
+         mapped.id = this.id.string()
+         mapped.event_signature = this.event_signature.string()
+         mapped.address = this.address.string()
+         mapped.transaction_hash = this.transaction_hash.string()
+         mapped.log_index = this.log_index
+         mapped.data = this.data.string()
+         mapped.topics = this.topics.string()
+         mapped.block_number = this.block_number
+         mapped.block_hash = this.block_hash.string()
+         mapped.block_time = this.block_time
+    - split:
+        size: 1
+output:
+  label: ""
+  sql_insert:
+    init_statement: |2
+        CREATE TABLE IF NOT EXISTS events (
+          id VARCHAR,
+          event_signature VARCHAR,
+          to_address VARCHAR,
+          from_address VARCHAR,
+          value VARCHAR,
+          address VARCHAR,
+          transaction_hash VARCHAR,
+          log_index BIGINT,
+          data VARCHAR,
+          topics VARCHAR,
+          block_number BIGINT,
+          block_hash VARCHAR,
+          block_time BIGINT 
+        );
+    driver: postgres
+    dsn: postgres://postgres:postgrespassword@target-postgres:5432/postgres?sslmode=disable
+    table: events
+    columns: ['id', 'event_signature', 'to_address', 'from_address', 'value', 'address', 'transaction_hash', 'log_index', 'data', 'topics', 'block_number', 'block_hash', 'block_time']
+    args_mapping: root = [mapped.id, mapped.event_signature,  mapped.to_address, mapped.from_address, mapped.value, mapped.address, mapped.transaction_hash, mapped.log_index, mapped.data, mapped.topics, mapped.block_number, mapped.block_hash, mapped.block_time]
+    max_in_flight: 64
+    batching:
+      count: 100
+      period: 100ms
+logger:
+  level: INFO 
+  format: logfmt
+  add_timestamp: false
+  timestamp_name: time
+  message_name: msg
+  static_fields:
+    '@service': benthos
+  file:
+    path: ""
+    rotate: false
+    rotate_max_age_days: 0
+metrics:
+  prometheus:
+    use_histogram_timing: false
+    histogram_buckets: []
+    add_process_metrics: false
+    add_go_metrics: false
+    push_url: ""
+    push_interval: ""
+    push_job_name: benthos_push
+    push_basic_auth:
+      username: ""
+      password: ""
+    file_output_path: ""
+  mapping: ""
+tracer:
+  none: {}
+shutdown_delay: ""
+shutdown_timeout: 20s
