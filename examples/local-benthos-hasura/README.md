@@ -16,8 +16,6 @@ The configuration lives in this example directory in `benthos.yaml` and can be t
 2. Maps the decoded parquet files into usable variables, pulling one of the nested fields into separate columns for ease of use.
 3. Insert the values into a table in Postgres, creating that table if it doesn’t exist.
 
-
-
 ### What you'll need to modify:
 
 You may also want to tweak the batch count, period, or the `skip` processing step value. Benthos output may overwhelm the Postgres client, causing unwanted errors if these values are too permissive. The current settings may mean that it will take a while to run the whole pipeline.

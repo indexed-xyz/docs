@@ -20,7 +20,7 @@ input:
   aws_s3:
     bucket: "indexed-xyz"
     region: "auto"
-    prefix: "ethereum/decoded/logs/v1.0.0/partition_key=9d/"
+    prefix: "ethereum/decoded/logs/v1.0.0/partition_key=9d/dt=2023"
     endpoint: "https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com"
     credentials:
       id: 43c31ff797ec2387177cabab6d18f15a
@@ -33,19 +33,25 @@ pipeline:
     - parquet_decode:
         byte_array_as_string: true
     - mapping: |
-         mapped.to_address = this.event_params.list.index(0).element.string()
-         mapped.from_address = this.event_params.list.index(1).element.string()
-         mapped.value = this.event_params.list.index(2).egement.string()
-         mapped.id = this.id.string()
-         mapped.event_signature = this.event_signature.string()
-         mapped.address = this.address.string()
-         mapped.transaction_hash = this.transaction_hash.string()
-         mapped.log_index = this.log_index
-         mapped.data = this.data.string()
-         mapped.topics = this.topics.string()
-         mapped.block_number = this.block_number
-         mapped.block_hash = this.block_hash.string()
-         mapped.block_time = this.block_time
+        root = if this.address.string() == env("TARGET_ADDRESS") {
+          this
+        } else {
+          deleted()
+        }
+    - mapping: |
+        mapped.to_address = this.event_params.list.index(0).element.string()
+        mapped.from_address = this.event_params.list.index(1).element.string()
+        mapped.value = this.event_params.list.index(2).egement.string()
+        mapped.id = this.id.string()
+        mapped.event_signature = this.event_signature.string()
+        mapped.address = this.address.string()
+        mapped.transaction_hash = this.transaction_hash.string()
+        mapped.log_index = this.log_index
+        mapped.data = this.data.string()
+        mapped.topics = this.topics.string()
+        mapped.block_number = this.block_number
+        mapped.block_hash = this.block_hash.string()
+        mapped.block_time = this.block_time
     - split:
         size: 1
 output:

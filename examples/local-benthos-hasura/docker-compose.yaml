@@ -8,6 +8,8 @@ services:
     volumes:
       - ./benthos.yaml:/benthos.yaml
     command: --config /benthos.yaml
+    environment: 
+      - TARGET_ADDRESS=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d
   target-postgres:
     image: postgres:15
     restart: always
@@ -31,13 +33,14 @@ services:
     depends_on:
     - "postgres"
     - "target-postgres"
+    - "benthos"
     restart: always
     environment:
       ## postgres database to store Hasura metadata
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@target-postgres:5432/postgres
-      HASURA_TRACK_TABLES: public.events
+      HASURA_GRAPHQL_METADATA_TABLES: public.events
       ## enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
       ## enable debugging mode. It is recommended to disable this in production
