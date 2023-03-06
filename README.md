@@ -24,7 +24,7 @@ Our goal is for this dataset to be easily verifiable with decentralized back-up,
 - Directly query against the dataset with a tool like [Dremio](https://www.dremio.com/) to immediately get a cloud warehouse
 - Query smaller subsets of data (like for specific contracts) right in your laptop using duckdb or notebooks.
 - Host your own mini dashboard creation tool using [Rill Developer](https://rilldata.com)
-- Create a data pipeline that incrementally gets data as soon as it's added to the dataset and [pushes it to a database for querying](benthos_postgres_hasura.md)
+- Create a data pipeline that incrementally gets data as soon as it's added to the dataset and [pushes it to a database for querying](examples/benthos_postgres_hasura/README.md)
 - Make a discord bot that reacts to certain contract events.
 
 ## Getting Started
@@ -37,15 +37,16 @@ The `goldsky indexed` commands just grab data from R2, filter it down to what yo
 
 Since the data is just hosted in a S3 compatible bucket, you can use a variety of tools to export it. 
 
-- [Using the AWS CLI](awscli.md)
-- [Using rclone](rclone.md)
+- [Using the AWS CLI](examples/awscli/README.md)
+- [Using rclone](examples/rclone/README.md)
 
 ## Use Cases and Fun Tools
 
 This section is small today, but we'd love you to add any tools you're using or improved ways to access and use the [indexed.xyz](https://indexed.xyz) data!
 
-- [DuckDB and YouPlot](duckdb.md), a light weight command line starter guide.
-- [Benthos + NeonDB + Hasura](benthos_postgres_hasura.md): A start to finish data processing pipeline in the clouds 🌥️!
+- [DuckDB and YouPlot](examples/duckdb/README.md), a light weight command line starter guide.
+- [Benthos + NeonDB + Hasura](examples/benthos_postgres_hasura/README.md): A start to finish data processing pipeline in the clouds 🌥️!
+- [Benthos + Postgres + Hasura](examples/local-benthos-hasura/README.md): Download contract data locally, query it with Hasura.
 - [Get up and running fast with our friends at Rill](https://rilldata.com/indexed-xyz), a hosted analytics tool based on DuckDB. It's cool.
 
 Have some ideas for more? Start a [discussion](https://github.com/indexed-xyz/docs/discussions), open an issue, a pull request, [let us know via email](mailto:support@goldsky.com), or ping our [Telegram bot](https://t.me/goldskysupportbot), if the bot doesn't get back to you, please ping us on another channel, it's kind of new and may need to be oiled! In general, there's no wrong way to get involved. Ok, there's probably a wrong way, but we'll let you know if that happens 💔.
