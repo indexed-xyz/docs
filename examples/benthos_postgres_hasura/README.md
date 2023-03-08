@@ -147,7 +147,7 @@ postgres://username:password@ep-old-voice-1234.us-east-2.aws.neon.tech/neondb**?
 
 The environment config is offered up the first time you create a database, make sure to download it to have access to the full connection string. If you forgot this step, then click the `Reset Password` link in your main dashboard, then download the env file that is generated.
 
-![neonresetpass](../assets/images/neondb_reset_pw.png)
+![neonresetpass](../../assets/images/neondb_reset_pw.png)
 
 # Hasura
 
@@ -163,7 +163,7 @@ To get the environment variables and the `dsn` connection string to use, launch 
 
 If you are running Benthos with your Hasura `dsn` connection, the table `events` won’t be tracked automatically. In order to add it to Hasura, go to the `Data` tab, click on the `public` link, and then click `Track` on the area to the right where it says `events` (or what ever you decide to name the table, just make sure to update it in the places it’s used in the `config.yaml`!)
 
-![tracktable](../assets/images/hasura_track_table.png)
+![tracktable](../../assets/images/hasura_track_table.png)
 
 
 # Running the Pipeline
