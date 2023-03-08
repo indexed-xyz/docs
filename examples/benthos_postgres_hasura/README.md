@@ -170,7 +170,7 @@ If you are running Benthos with your Hasura `dsn` connection, the table `events`
 
 Once you have the `config.yaml` set up with the credentials you plan to use, it’s pretty simple to run the pipeline from your terminal:
 
-```json
+```bash
 $ benthos -c ./config.yaml
 ```
 
