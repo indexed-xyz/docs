@@ -67,10 +67,6 @@ select date_trunc('month', to_timestamp(block_time)), count(*) from '*.parquet' 
 | 2023-02-01                                    | 22673        |
 | 2023-03-01                                    | 4562         |
 
-> ⚠️
-> 
-> If your results are different, it's probably because this was written before the full dataset was released, we'll update it once it's all settled in R2!
-
 You could also use a fun command line tool, [YouPlot](https://github.com/red-data-tools/YouPlot) to visualize this data in a terminal.
 
 I threw the SQL query into a file called bayc.sql and ran this command:
