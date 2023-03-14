@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## R2 File Structure
 
-We're hosting indexed.xyz on Cloudflare's R2. R2 has an S3 API, so you can grab these files either with the [Goldsky CLI](https://docs.goldsky.com/references/cli) (the quickest way to get started), the [AWS CLI tool](/examples/awscli), or [rclone](/examples/rclone).
+We're hosting indexed.xyz on Cloudflare's R2. R2 has an S3 API, so you can grab these files either with the [Goldsky CLI](https://docs.goldsky.com/references/cli) (the quickest way to get started), the [AWS CLI tool](/dataset/awscli.md), or [rclone](/dataset/rclone.md).
 
 The prefix structure for data in R2 is:
 
