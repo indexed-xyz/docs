@@ -18,25 +18,25 @@ http:
   address: 0.0.0.0:4195
   root_path: /benthos
   debug_endpoints: false
-  cert_file: ""
-  key_file: ""
+  cert_file: ''
+  key_file: ''
   cors:
     enabled: false
     allowed_origins: []
   basic_auth:
     enabled: false
     realm: restricted
-    username: ""
-    password_hash: ""
+    username: ''
+    password_hash: ''
     algorithm: sha256
-    salt: ""
+    salt: ''
 input:
-  label: ""
+  label: ''
   aws_s3:
-    bucket: "indexed-xyz"
-    region: "auto"
-    prefix: "ethereum/decoded/logs/v1.0.0/partition_key=9d/"
-    endpoint: "https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com"
+    bucket: 'indexed-xyz'
+    region: 'auto'
+    prefix: 'ethereum/decoded/logs/v1.0.0/partition_key=9d/'
+    endpoint: 'https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com'
     credentials:
       id: 43c31ff797ec2387177cabab6d18f15a
       secret: afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645fb284cf7
@@ -48,23 +48,23 @@ pipeline:
     - parquet_decode:
         byte_array_as_string: true
     - mapping: |
-         mapped.to_address = this.event_params.list.index(0).element.string()
-         mapped.from_address = this.event_params.list.index(1).element.string()
-         mapped.value = this.event_params.list.index(2).egement.string()
-         mapped.id = this.id.string()
-         mapped.event_signature = this.event_signature.string()
-         mapped.address = this.address.string()
-         mapped.transaction_hash = this.transaction_hash.string()
-         mapped.log_index = this.log_index
-         mapped.data = this.data.string()
-         mapped.topics = this.topics.string()
-         mapped.block_number = this.block_number
-         mapped.block_hash = this.block_hash.string()
-         mapped.block_time = this.block_time
+        mapped.to_address = this.event_params.list.index(0).element.string()
+        mapped.from_address = this.event_params.list.index(1).element.string()
+        mapped.value = this.event_params.list.index(2).egement.string()
+        mapped.id = this.id.string()
+        mapped.event_signature = this.event_signature.string()
+        mapped.address = this.address.string()
+        mapped.transaction_hash = this.transaction_hash.string()
+        mapped.log_index = this.log_index
+        mapped.data = this.data.string()
+        mapped.topics = this.topics.string()
+        mapped.block_number = this.block_number
+        mapped.block_hash = this.block_hash.string()
+        mapped.block_time = this.block_time
     - split:
         size: 1
 output:
-  label: ""
+  label: ''
   sql_insert:
     init_statement: |2
         CREATE TABLE IF NOT EXISTS events (
@@ -85,14 +85,29 @@ output:
     driver: postgres
     dsn: postgres://username:password@summer-waterfall-1234.us-west-2.aws.neon.tech/yourdbname?options=project%3Dsummer-waterfall-1234&sslmode=require
     table: events
-    columns: ['id', 'event_signature', 'to_address', 'from_address', 'value', 'address', 'transaction_hash', 'log_index', 'data', 'topics', 'block_number', 'block_hash', 'block_time']
+    columns:
+      [
+        'id',
+        'event_signature',
+        'to_address',
+        'from_address',
+        'value',
+        'address',
+        'transaction_hash',
+        'log_index',
+        'data',
+        'topics',
+        'block_number',
+        'block_hash',
+        'block_time',
+      ]
     args_mapping: root = [mapped.id, mapped.event_signature,  mapped.to_address, mapped.from_address, mapped.value, mapped.address, mapped.transaction_hash, mapped.log_index, mapped.data, mapped.topics, mapped.block_number, mapped.block_hash, mapped.block_time]
     max_in_flight: 64
     batching:
       count: 100
       period: 100ms
 logger:
-  level: INFO 
+  level: INFO
   format: logfmt
   add_timestamp: false
   timestamp_name: time
@@ -100,7 +115,7 @@ logger:
   static_fields:
     '@service': benthos
   file:
-    path: ""
+    path: ''
     rotate: false
     rotate_max_age_days: 0
 metrics:
@@ -109,17 +124,17 @@ metrics:
     histogram_buckets: []
     add_process_metrics: false
     add_go_metrics: false
-    push_url: ""
-    push_interval: ""
+    push_url: ''
+    push_interval: ''
     push_job_name: benthos_push
     push_basic_auth:
-      username: ""
-      password: ""
-    file_output_path: ""
-  mapping: ""
+      username: ''
+      password: ''
+    file_output_path: ''
+  mapping: ''
 tracer:
   none: {}
-shutdown_delay: ""
+shutdown_delay: ''
 shutdown_timeout: 20s
 ```
 
@@ -139,7 +154,7 @@ Finally, since there's no primary key on the database, if you re-run this pipeli
 
 If you don't already have a NeonDB account, go ahead and sign up for a free one [here](https://console.neon.tech/sign_in).
 
-The Hasura connector for NeonDB takes care of most of what you need, but if you want to work directly with NeonDB, you can do that as well by just using the `DATABASE_URL` provided in their environment config, with the caveat that you will need to add an additional option parameter specifying the project you’re using, like this: 
+The Hasura connector for NeonDB takes care of most of what you need, but if you want to work directly with NeonDB, you can do that as well by just using the `DATABASE_URL` provided in their environment config, with the caveat that you will need to add an additional option parameter specifying the project you’re using, like this:
 
 ```
 postgres://username:password@ep-old-voice-1234.us-east-2.aws.neon.tech/neondb**?options=project%3Dep-old-voice-1234**
@@ -164,7 +179,6 @@ To get the environment variables and the `dsn` connection string to use, launch 
 If you are running Benthos with your Hasura `dsn` connection, the table `events` won’t be tracked automatically. In order to add it to Hasura, go to the `Data` tab, click on the `public` link, and then click `Track` on the area to the right where it says `events` (or what ever you decide to name the table, just make sure to update it in the places it’s used in the `config.yaml`!)
 
 ![tracktable](/img/hasura_track_table.png)
-
 
 # Running the Pipeline
 
