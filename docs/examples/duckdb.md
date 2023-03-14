@@ -1,6 +1,7 @@
 ---
 title: DuckDB + YouPlot
 ---
+
 # Getting Started with DuckDB
 
 ## Installation
@@ -34,7 +35,7 @@ select count(distinct(CAST(event_params[3] AS INTEGER))) from '*.parquet' where 
 We should see:
 
 | count(DISTINCT CAST(event_params[3] AS INTEGER)) |
-|--------------------------------------------------|
+| ------------------------------------------------ |
 | 10000                                            |
 
 What else can we do? How about looking at the transaction volume by month:
@@ -44,7 +45,7 @@ select date_trunc('month', to_timestamp(block_time)), count(*) from '*.parquet' 
 ```
 
 | date_trunc('month', to_timestamp(block_time)) | count_star() |
-|-----------------------------------------------|--------------|
+| --------------------------------------------- | ------------ |
 | 2021-04-01                                    | 516          |
 | 2021-05-01                                    | 14863        |
 | 2021-06-01                                    | 6472         |
@@ -70,7 +71,7 @@ select date_trunc('month', to_timestamp(block_time)), count(*) from '*.parquet' 
 | 2023-02-01                                    | 779          |
 
 > ⚠️
-> 
+>
 > If your results are different, it's probably because this was written before the full dataset was released, we'll update it once it's all settled in R2!
 
 You could also use a fun command line tool, [YouPlot](https://github.com/red-data-tools/YouPlot) to visualize this data in a terminal.
@@ -78,6 +79,7 @@ You could also use a fun command line tool, [YouPlot](https://github.com/red-dat
 ## Plotting with YouPlot
 
 I threw the SQL query into a file called bayc.sql and ran this command:
+
 ```bash
 $ duckdb -header -csv < bayc.sql|youplot -H -d , --width 80 bar
               ┌                                                                                ┐
@@ -108,4 +110,3 @@ $ duckdb -header -csv < bayc.sql|youplot -H -d , --width 80 bar
 ```
 
 That's pretty neat! Let us know how you end up using this data.
-

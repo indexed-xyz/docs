@@ -2,6 +2,7 @@
 sidebar_label: FAQ
 hide_title: True
 ---
+
 ## What is indexed.xyz?
 
 [indexed.xyz](http://indexed.xyz) is a free, publicly available data set that includes blocks, traces, events and logs for Ethereum. We built indexed.xyz because we believe that making this data publicly available will help grow the blockchain ecosystem.
@@ -12,11 +13,11 @@ It is at the time of launch, but we’ll have much more to share about additiona
 
 ## Is this dataset updated in real-time?
 
-The publicly available free dataset has a five minute delay. Goldsky Enterprise customers can access a real-time stream with no delay. 
+The publicly available free dataset has a five minute delay. Goldsky Enterprise customers can access a real-time stream with no delay.
 
 ## Is this an open source community effort?
 
-[indexed.xyz](http://indexed.xyz) is built by Goldsky and sponsored by numerous partners including Coinbase, Gnosis, Arweave, Rill, and Cloudflare. Over time, we plan to open-source various components of indexed.xyz to make it a true community effort. 
+[indexed.xyz](http://indexed.xyz) is built by Goldsky and sponsored by numerous partners including Coinbase, Gnosis, Arweave, Rill, and Cloudflare. Over time, we plan to open-source various components of indexed.xyz to make it a true community effort.
 
 ## What types of decoded data is in indexed.xyz?
 

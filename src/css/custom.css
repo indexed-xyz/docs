@@ -22,5 +22,5 @@
 }
 
 html[data-theme='dark'] .navbar .navbar__logo {
-  content: url(/img/indexed-wordmark-light.svg);
+  content: url('/img/indexed-wordmark-light.svg');
 }
