@@ -7,7 +7,7 @@
   --ifm-color-primary-lighter: #9d380f;
   --ifm-color-primary-lightest: #b74111;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
 }
 
 [data-theme='dark'] {
@@ -18,9 +18,10 @@
   --ifm-color-primary-light: #f29d84;
   --ifm-color-primary-lighter: #f3a790;
   --ifm-color-primary-lightest: #f6bba9;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 30%);
 }
 
+/* stylelint-disable-next-line selector-class-pattern */
 html[data-theme='dark'] .navbar .navbar__logo {
   content: url('/img/indexed-wordmark-light.svg');
 }
