@@ -1,0 +1,26 @@
+:root {
+  --ifm-color-primary: #ec6832;
+  --ifm-color-primary-dark: #69250a;
+  --ifm-color-primary-darker: #4f1c07;
+  --ifm-color-primary-darkest: #341305;
+  --ifm-color-primary-light: #832f0c;
+  --ifm-color-primary-lighter: #9d380f;
+  --ifm-color-primary-lightest: #b74111;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #e9582c;
+  --ifm-color-primary-dark: #ee805e;
+  --ifm-color-primary-darker: #ec6c45;
+  --ifm-color-primary-darkest: #ea6239;
+  --ifm-color-primary-light: #f29d84;
+  --ifm-color-primary-lighter: #f3a790;
+  --ifm-color-primary-lightest: #f6bba9;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] .navbar .navbar__logo {
+  content: url(/img/indexed-wordmark-light.svg);
+}
