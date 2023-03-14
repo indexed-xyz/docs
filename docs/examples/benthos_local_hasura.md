@@ -8,7 +8,7 @@ Follow the setup instructions for your system on the Docker website [here](https
 
 ## Files for This Project
 
-You can find the files referenced in this document [here](https://github.com/indexed-xyz/docs/tree/main/docs/static/local_benthos_hasura/).
+You can find the files referenced in this document [here](https://github.com/indexed-xyz/docs/tree/main/static/local_benthos_hasura).
 
 ## Set Up a Benthos Pipeline
 
