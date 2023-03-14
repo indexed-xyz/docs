@@ -1,0 +1,9 @@
+{
+  "label": "Examples",
+  "position": 4,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "How to get up and running with indexed.xyz data using different tools."
+  }
+}
