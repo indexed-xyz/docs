@@ -1,11 +1,5 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+module.exports = {
   title: 'Indexed.xyz Documentation',
   favicon: 'img/indexed.png',
 
@@ -29,9 +23,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/indexed-xyz/docs/tree/main/',
+          sidebarPath: require.resolve('./sidebars.cjs'),
+          editUrl: 'https://github.com/indexed-xyz/docs/tree/main/',
           routeBasePath: '/',
         },
         blog: false,
@@ -94,10 +87,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Goldsky, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require('prism-react-renderer/themes/github'),
+        darkTheme: require('prism-react-renderer/themes/dracula'),
       },
     }),
 };
-
-module.exports = config;

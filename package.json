@@ -13,7 +13,12 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint:prettier": "prettier --plugin-search-dir . --check .",
+    "lint:style": "stylelint 'src/**/*.css'",
+    "lint:es": "eslint .",
+    "lint": "yarn lint:prettier && yarn lint:style && yarn lint:es",
+    "format": "prettier --plugin-search-dir . --write ."
   },
   "dependencies": {
     "@docusaurus/core": "^2.3.1",
@@ -25,7 +30,19 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.3.1"
+    "@babel/core": "^7.21.3",
+    "@docusaurus/module-type-aliases": "^2.3.1",
+    "@docusaurus/plugin-content-docs": "^2.3.1",
+    "@docusaurus/types": "^2.3.1",
+    "eslint": "^8.36.0",
+    "eslint-config-next": "^13.2.4",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.3",
+    "stylelint": "^15.2.0",
+    "stylelint-config-recommended": "^10.0.1",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-order": "^6.0.3"
   },
   "browserslist": {
     "production": [
