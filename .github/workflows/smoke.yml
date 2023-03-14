@@ -1,0 +1,12 @@
+name: smoke
+on: [push]
+jobs:
+  smoke-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: true
+      - run: pnpm build --no-minify
