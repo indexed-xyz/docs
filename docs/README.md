@@ -11,11 +11,13 @@ hide_title: True
 > 🚧 **Technical Preview** 🚧
 > When using this dataset in its current form, be aware that it's not yet finalized. Check out our [FAQ](FAQ.md) before getting started.
 
-The Indexed Dataset is a permanently free, public domain, [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/) licensed dataset for doing analysis on near real-time data on blockchains. The dataset is backed an alliance of web3 and cloud organizations with the goal of providing a way to easily analyze data from your laptop or servers without being locked into any specific cloud.
+The Indexed Dataset is a permanently free, public domain, [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/) licensed dataset for doing analysis on near real-time data on blockchains. 
 
-The data is kept up to date with the goal of under ten minutes refresh. While not real-time enough for gaming use-cases, it is fast enough to support a wide range of analyses and features.
+The dataset is backed an alliance of web3 and cloud organizations with the goal of providing a way to easily analyze data from your laptop or servers without being locked into any specific cloud.
 
-The data is fully available and exportable, hosted on Cloudflare R2. The data is stored in the [parquet](https://parquet.apache.org/) format, and once downloaded, can be directly access through tools like [pandas](https://pandas.pydata.org/), [duckdb](https://duckdb.org/), and more.
+The data is kept up to date with the goal of under ten minutes refresh. While not real-time enough for some use-cases, it is fast enough to support a wide range of analyses and features in dapps. 
+
+Indexed is fully available and exportable for free, hosted on Cloudflare R2. The data is stored in the [parquet](https://parquet.apache.org/) format, and once downloaded, can be directly access through tools like [pandas](https://pandas.pydata.org/), [duckdb](https://duckdb.org/), and more.
 
 Our goal is for this dataset to be easily verifiable with decentralized back-up, and optimized with dapp builders in mind.
 
