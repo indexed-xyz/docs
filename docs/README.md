@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 hide_title: True
 ---
 
-## Getting Started with indexed.xyz Data
+## Getting Started with Indexed
 
 > 🚧 **Technical Preview** 🚧
 > When using this dataset in its current form, be aware that it's not yet finalized. Check out our [FAQ](FAQ.md) before getting started.
@@ -45,8 +45,8 @@ Since the data is just hosted in a S3 compatible bucket, you can use a variety o
 This section is small today, but we'd love you to add any tools you're using or improved ways to access and use the [indexed.xyz](https://indexed.xyz) data!
 
 - [DuckDB and YouPlot](examples/duckdb.md), a light weight command line starter guide.
-- [Benthos + NeonDB + Hasura](examples/benthos_postgres_hasura.md): A start to finish data processing pipeline in the clouds 🌥️!
-- [Benthos + Postgres + Hasura](examples/benthos_local_hasura.md): Download contract data locally, query it with Hasura.
+- [Benthos + NeonDB + Hasura](examples/benthos_postgres_hasura.md): A start to finish guide to get a live GraphQL in the cloud 🌥️!
+- [Benthos + Postgres + Hasura](examples/benthos_local_hasura.md): Download contract data locally, stick it into a database, and query with graphql.
 - [Get up and running fast with our friends at Rill](https://rilldata.com/indexed-xyz), a hosted analytics tool based on DuckDB. It's cool.
 
 Have some ideas for more? Start a [discussion](https://github.com/indexed-xyz/docs/discussions), open an issue, a pull request, [let us know via email](mailto:support@goldsky.com), or ping our [Telegram bot](https://t.me/goldskysupportbot), if the bot doesn't get back to you, please ping us on another channel, it's kind of new and may need to be oiled! In general, there's no wrong way to get involved. Ok, there's probably a wrong way, but we'll let you know if that happens 💔.

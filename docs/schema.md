@@ -3,7 +3,7 @@ sidebar_label: Schema & File Structure
 sidebar_position: 2
 ---
 
-# File Structure & Schema
+# Schema & File Structure
 
 ## R2 File Structure
 
