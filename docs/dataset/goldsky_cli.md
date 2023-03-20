@@ -19,3 +19,4 @@ This will start the Goldsky CLI, and prompt you for a contract address to start 
 
 Data is downloaded into the `./data` directory for you to use. If you want to get started with querying the data without installing anything more, check out our [DuckDB](/examples/duckdb.md) example.
 
+One benefit of downloading the data this way is that it will pre-filter the downloaded data to include only data for the contract you are interested in. As you will see in the [DuckDB](/examples/duckdb.md) example, we're often filtering for a specific `address` because other download methods will download more data than just a single contract, so the filter is necessary.
