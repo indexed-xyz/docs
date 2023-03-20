@@ -21,14 +21,14 @@ The publicly available free dataset has a multi-minute delay. If you're interest
 
 ## What types of decoded data is in indexed.xyz?
 
-It currently includes NFT collections (ERC-721), token transfers, and ERC-1155, which is a token standard common in blockchain-based gaming. This is an ongoing project and we’ll decode more data over time. 
+It currently includes NFT collections (ERC-721), token transfers, and ERC-1155, which is a token standard common in blockchain-based gaming. This is an ongoing project and we’ll decode more data over time.
 
 ## Where is the data stored?
 
 The dataset currently lives in Cloudflare R2, but is free to be downloaded. The hosting was generously donated by [Cloudflare](https://cloudflare.com), and access is free without any cloudflare account needed.
 
-Our roadmap includes backing up all this data to decentralized networks like [Arweave](https://www.arweave.org/) as well! 
+Our roadmap includes backing up all this data to decentralized networks like [Arweave](https://www.arweave.org/) as well!
 
 ## Do I need the goldsky cli to use this?
 
-Nope! The goldsky CLI simply provides some shortcuts. All it does is download from the bucket, filter down to the contract you want, and delete the rest, along with some convenience methods to do this in an ongoing basis. 
+Nope! The goldsky CLI simply provides some shortcuts. All it does is download from the bucket, filter down to the contract you want, and delete the rest, along with some convenience methods to do this in an ongoing basis.
