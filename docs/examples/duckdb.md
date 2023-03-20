@@ -10,7 +10,7 @@ Make sure you install DuckDB first by following their guide [here](https://duckd
 
 ## Download Parquet Files
 
-You can download the files with the [Goldsky CLI](https://docs.goldsky.com), or by following one of our guides for [AWS CLI](../dataset/awscli.md), or [rclone](../dataset/rclone.md).
+You can download the files with the [Goldsky CLI](https://docs.goldsky.com), or by following one of our guides for [AWS CLI](/dataset/awscli.md), or [rclone](/dataset/rclone.md).
 
 The prefix we're using is `9d`.
 
@@ -20,7 +20,9 @@ Depending on how you downloaded the files, they may be in a flat directory, or s
 select date_trunc('month', to_timestamp(block_time)), count(*) from '*/*.parquet' where lower(address) = '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d' and event_signature = 'Transfer(address,address,uint256)' group by 1;
 ```
 
-Our files are not in a directory so we'll be using a slightly different query in this example.
+The above query will also work if you used the [Goldsky CLI and Docker](/dataset/goldsky_cli.md), as it puts the data into a `./data` directory which will also match the right path.
+
+Our files are not in a directory, so we'll be using a slightly different query in this example.
 
 ## Counting the Tokens
 
