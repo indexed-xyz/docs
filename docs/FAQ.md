@@ -17,7 +17,7 @@ The publicly available free dataset has a multi-minute delay. If you're interest
 
 ## Is this an open source community effort?
 
-[indexed.xyz](https://indexed.xyz) is built by Goldsky and sponsored by numerous partners including Coinbase, Gnosis, Arweave, Rill, and Cloudflare. Over time, we plan to open-source all the components components of indexed.xyz to make it a true community effort.
+[indexed.xyz](https://indexed.xyz) is built by Goldsky and sponsored by numerous partners including Coinbase, Gnosis, Arweave, Rill, and Cloudflare. Over time, we plan to open-source all the components of indexed.xyz to make it a true community effort.
 
 ## What types of decoded data is in indexed.xyz?
 
