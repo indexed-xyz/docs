@@ -8,9 +8,15 @@ title: DuckDB + YouPlot
 
 Make sure you install DuckDB first by following their guide [here](https://duckdb.org/#quickinstall). If you're on macOS, we recommend using [Homebrew](https://docs.brew.sh/Installation), you can install duckdb with the following terminal command: `brew install duckdb`
 
+Alternatively, you can run duckdb directly from a docker image we've published like so:
+
+`docker run -v $(pwd):/var/opt/indexed-xyz -it goldsky/indexed.xyz:latest duckdb`
+
+If you followed the steps in the [Goldsky CLI and Docker](/dataset/goldsky_cli.md) guide to download files, keep in mind your data will live in the `./data` directory.
+
 ## Download Parquet Files
 
-You can download the files with the [Goldsky CLI](https://docs.goldsky.com), or by following one of our guides for [AWS CLI](../dataset/awscli.md), or [rclone](../dataset/rclone.md).
+You can download the files with the [Goldsky CLI](https://docs.goldsky.com), or by following one of our guides for [AWS CLI](/dataset/awscli.md), or [rclone](/dataset/rclone.md).
 
 The prefix we're using is `9d`.
 
@@ -20,7 +26,9 @@ Depending on how you downloaded the files, they may be in a flat directory, or s
 select date_trunc('month', to_timestamp(block_time)), count(*) from '*/*.parquet' where lower(address) = '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d' and event_signature = 'Transfer(address,address,uint256)' group by 1;
 ```
 
-Our files are not in a directory so we'll be using a slightly different query in this example.
+The above query will also work if you used the [Goldsky CLI and Docker](/dataset/goldsky_cli.md), as it puts the data into a `./data` directory which will also match the right path.
+
+Our files are not in a directory, so we'll be using a slightly different query in this example.
 
 ## Counting the Tokens
 
