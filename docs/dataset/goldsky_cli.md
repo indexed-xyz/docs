@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+
 # Downloading with the Goldsky CLI and Docker
 
 You can always install and use the [Goldsky CLI](https://docs.goldsky.com/#quick-start), but in this document we're going to use a Docker image to let you get up and running without directly installing the Goldsky CLI.
