@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').Config} */
 module.exports = {
   title: 'Indexed.xyz Documentation',
-  favicon: 'img/indexed.png',
+  favicon: 'img/indexed-logo.svg',
 
   url: 'https://docs.indexed.xyz',
   baseUrl: '/',
