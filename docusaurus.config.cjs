@@ -55,7 +55,7 @@ module.exports = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/indexed-wordmark-dark.png',
+      image: 'img/twitter-card.png',
       navbar: {
         logo: {
           alt: 'Indexed.xyz Logo',
@@ -106,9 +106,5 @@ module.exports = {
         theme: require('prism-react-renderer/themes/github'),
         darkTheme: require('prism-react-renderer/themes/dracula'),
       },
-      metadata: [
-        { property: 'twitter:image:width', content: '696' },
-        { property: 'twitter:image:height', content: '170' },
-      ],
     }),
 };
