@@ -106,5 +106,9 @@ module.exports = {
         theme: require('prism-react-renderer/themes/github'),
         darkTheme: require('prism-react-renderer/themes/dracula'),
       },
+      metadata: [
+        { property: 'twitter:image:width', content: '696' },
+        { property: 'twitter:image:height', content: '170' },
+      ],
     }),
 };
