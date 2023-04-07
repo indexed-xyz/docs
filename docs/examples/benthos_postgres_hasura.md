@@ -35,7 +35,7 @@ input:
   aws_s3:
     bucket: 'indexed-xyz'
     region: 'auto'
-    prefix: 'ethereum/decoded/logs/v1.0.0/partition_key=9d/'
+    prefix: 'ethereum/decoded/logs/v1.2.0/partition_key=9d/'
     endpoint: 'https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com'
     credentials:
       id: 43c31ff797ec2387177cabab6d18f15a

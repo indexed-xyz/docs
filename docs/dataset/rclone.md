@@ -31,7 +31,7 @@ endpoint = https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com
 To retrieve the files using the rclone cli tool, you can then run the following command in a terminal with the provided credentials:
 
 ```bash
-$ rclone copy r2://indexed-xyz/ethereum/decoded/logs/v1.0.0/partition_key=9d/ .
+$ rclone copy r2://indexed-xyz/ethereum/decoded/logs/v1.2.0/partition_key=9d/ .
 ```
 
 This will download the Parquet files into the current directory.
