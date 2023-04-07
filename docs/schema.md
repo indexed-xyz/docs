@@ -11,7 +11,7 @@ We're hosting indexed.xyz on Cloudflare's R2. R2 has an S3 API, so you can grab 
 
 The prefix structure for data in R2 is:
 
-`s3://indexed-xyz/<chain>/(decoded|raw)/logs/v1.0.0/partition_key=<XX>/dt=<YYYY>`
+`s3://indexed-xyz/<chain>/(decoded|raw)/logs/v1.2.0/partition_key=<XX>/dt=<YYYY>`
 
 For now, the only chain avcailable is ethereum (without the angle brackets), though we will be expanding that as we go, if there's a chain you would like to see, shoot us an [email](mailto:support@goldsky.com) and we'll consider adding it.
 
@@ -60,7 +60,7 @@ The Parquet file scheme we're using is:
 Here’s an example from one of the files, queried using [DuckDB](https://duckdb.org):
 
 ```sql
-SELECT * FROM 'ethereum_decoded_logs_v1.0.0_partition_key=00_dt=2021_part-3acd096e-279f-42aa-9c5b-b03397cf6f7f-24-134.parquet' LIMIT 1;
+SELECT * FROM 'ethereum_decoded_logs_v1.2.0_partition_key=00_dt=2021_part-3acd096e-279f-42aa-9c5b-b03397cf6f7f-24-134.parquet' LIMIT 1;
 ```
 
 | block_time | address                                    | event_signature                   | event_params                                                                                    | block_number | block_hash                                                         | log_index | transaction_hash                                                   | transaction_index | data                                                               | topics                                                                                                                                                                                                   | id                                                                               |
