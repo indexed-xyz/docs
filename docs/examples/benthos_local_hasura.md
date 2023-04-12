@@ -12,7 +12,7 @@ You can find the files referenced in this document [here](https://github.com/ind
 
 ## Set Up a Benthos Pipeline
 
-You don't need to install anything to get this example working (besides docker-compose), but you should learn to love the blob. Check out the docs and make friends with him here [here](https://www.benthos.dev/docs/guides/about). You must _not_ laugh at the blob, you may hurt its feelings.
+You don't need to install anything to get this example working (besides docker-compose), but you should learn to love the blob. Check out the docs and make friends with him [here](https://www.benthos.dev/docs/guides/about). You must _not_ laugh at the blob, you may hurt its feelings.
 
 The configuration lives in this example directory in `benthos.yaml` and can be tweaked to your needs, it includes the following steps:
 
