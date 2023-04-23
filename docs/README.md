@@ -13,7 +13,9 @@ hide_title: True
 
 The Indexed Dataset is a permanently free, public domain, [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/) licensed dataset for doing analysis on near real-time data on blockchains. The dataset is backed by an alliance of web3 and cloud organizations with the goal of providing a way to easily analyze data from your laptop or servers without being locked into any specific cloud.
 
-The data is kept up to date with the goal of under ten minutes refresh. While not real-time enough for gaming use cases, it is fast enough to support a wide range of analyses and features.
+The dataset offers both raw blocks, logs, transactions, decoded logs. At launch, the ethereum blockchain is **93% decoded**, most logs have corresponding event signatures and event parameters in human-readable format. 
+
+The data is kept up to date with the goal of under ten minutes refresh. While not real-time enough for some use cases, it is fast enough to support a wide range of analyses and features.
 
 The data is fully available and exportable, hosted on Cloudflare R2. The data is stored in the [parquet](https://parquet.apache.org/) format, and once downloaded, can be directly accessed through tools like [pandas](https://pandas.pydata.org/), [duckdb](https://duckdb.org/), and more.
 
@@ -67,7 +69,7 @@ With the community's help, we will implement a process where we start decoding a
 - [x] Transactions
 - [x] Logs
 - [x] Token (ERC20) and NFT (ERC721/1155) Decoded Logs
-- [ ] Initial set of Custom Contract Decoded Logs (ie. Defi, Game, contracts)
+- [x] Initial set of Custom Contract Decoded Logs (ie. Defi, Game, contracts)
 
 **V2**
 
