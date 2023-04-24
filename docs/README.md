@@ -13,7 +13,7 @@ hide_title: True
 
 The Indexed Dataset is a permanently free, public domain, [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/) licensed dataset for doing analysis on near real-time data on blockchains. The dataset is backed by an alliance of web3 and cloud organizations with the goal of providing a way to easily analyze data from your laptop or servers without being locked into any specific cloud.
 
-The dataset offers both raw blocks, logs, transactions, decoded logs. At launch, the ethereum blockchain is **93% decoded**, most logs have corresponding event signatures and event parameters in human-readable format. 
+The dataset offers both raw blocks, logs, transactions, decoded logs. At launch, the ethereum blockchain is **93% decoded**, most logs have corresponding event signatures and event parameters in human-readable format.
 
 The data is kept up to date with the goal of under ten minutes refresh. While not real-time enough for some use cases, it is fast enough to support a wide range of analyses and features.
 

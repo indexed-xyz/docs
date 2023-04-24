@@ -7,9 +7,9 @@ hide_title: True
 
 [indexed.xyz](http://indexed.xyz) is a free, publicly available data set that includes blocks, traces, events and logs for Ethereum. We built indexed.xyz because we believe that making this data publicly available will help grow the blockchain ecosystem.
 
-## Is Ethereum the only supported chain?
+## What chains are supported?
 
-It is at the time of launch, but we’ll have much more to share about additional chains in the near future! Follow us on Twitter at @goldskyio to get updates.
+[Check here](chains.md) for the list of supported chains and for updates about future chains, you can also follow us on Twitter at [@goldskyio](https://twitter.com/goldskyio) to get updates.
 
 ## Is this dataset updated in real-time?
 
