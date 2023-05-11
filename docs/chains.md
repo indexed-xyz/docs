@@ -8,10 +8,10 @@ Currently, the following chains are supported:
 
 - Ethereum
 - Gnosis
+- Base (testnet)
 
 In the future we plan to have support for the following chains:
 
-- Base (testnet)
 - Arweave
 
 # Requesting Support
