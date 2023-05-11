@@ -13,6 +13,7 @@ Currently all files stored in indexed.xyz in under [cloudflare R2](https://www.c
 We would use databend [worksheet](https://docs.databend.com/using-databend-cloud/worksheet) to run all queries with the XSmall instance.
 
 At First, we need to add indexed.xyz R2 as a databend [stage](https://docs.databend.com/sql/sql-commands/ddl/stage/).
+
 ```sql
 CREATE STAGE r2_stage
 URL = 's3://indexed-xyz/ethereum/decoded/logs/v1.2.0/partition_key=9d/'
@@ -25,21 +26,22 @@ CONNECTION = (
 ```
 
 You could take a look on loaded files through
+
 ```sql
 LIST @r2_stage;
 ```
 
-the data file looks like: 
+the data file looks like:
 
-| name | size | md5 | last_modified | creator |
-| ---- | ---- | --- | ------------- | ------- |
-| dt=2015/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-0-4.parquet | 12616 | e273f913a5f75fea96f9fe7d2f086a6f | 2023-04-07 02:02:21.717 +0000 | NULL |
-| dt=2015/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-0-42.parquet | 5470 | a29c8427372d02dece62924dd985ae51 | 2023-04-07 02:02:21.725 +0000 | NULL |
-| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-26.parquet | 32708 | 2c21a9ffbec6d900f21fe4e8ff30d00f | 2023-04-07 02:02:22.131 +0000 | NULL |
-| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-27.parquet | 261112 | 8efed0a4490b52bb35a12eb1d2162d18 | 2023-04-07 02:02:21.724 +0000 | NULL |
-| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-44.parquet | 10927 | d5f7c980ac9e1e1c3de8d42c4388a7b1 | 2023-04-07 02:02:21.794 +0000 | NULL |
-| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-45.parquet | 273489 | e41f8268c73ff9e8062a16fd1bd3d8bf | 2023-04-07 02:02:22.180 +0000 | NULL |
-| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-9.parquet | 4220496 | f206d6bcb48483dc684ba8c67d5c6733 | 2023-04-07 02:02:22.145 +0000 | NULL |
+| name                                                                  | size    | md5                              | last_modified                 | creator |
+| --------------------------------------------------------------------- | ------- | -------------------------------- | ----------------------------- | ------- |
+| dt=2015/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-0-4.parquet   | 12616   | e273f913a5f75fea96f9fe7d2f086a6f | 2023-04-07 02:02:21.717 +0000 | NULL    |
+| dt=2015/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-0-42.parquet  | 5470    | a29c8427372d02dece62924dd985ae51 | 2023-04-07 02:02:21.725 +0000 | NULL    |
+| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-26.parquet | 32708   | 2c21a9ffbec6d900f21fe4e8ff30d00f | 2023-04-07 02:02:22.131 +0000 | NULL    |
+| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-27.parquet | 261112  | 8efed0a4490b52bb35a12eb1d2162d18 | 2023-04-07 02:02:21.724 +0000 | NULL    |
+| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-44.parquet | 10927   | d5f7c980ac9e1e1c3de8d42c4388a7b1 | 2023-04-07 02:02:21.794 +0000 | NULL    |
+| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-45.parquet | 273489  | e41f8268c73ff9e8062a16fd1bd3d8bf | 2023-04-07 02:02:22.180 +0000 | NULL    |
+| dt=2016/1680119600-25ee0299-28eb-47a4-b81e-f49f5399617b-37-9.parquet  | 4220496 | f206d6bcb48483dc684ba8c67d5c6733 | 2023-04-07 02:02:22.145 +0000 | NULL    |
 
 ### Create contract table
 
@@ -77,6 +79,7 @@ The above command is idempotent, once file loaded into contract table, redo copy
 Once data loaded into the `contract` table(expect around 1 to 10 minutes), we could start to take some query on it.
 
 ## Counting the tokens
+
 We could check on the minted token for Bored Ape Yacht Club under partition `9d` by querying the data:
 
 ```sql
@@ -88,56 +91,55 @@ WHERE LOWER(address) = '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d'
 ```
 
 | count() |
-| 5374    |
-
+| 5374 |
 
 And if we want to check on the transaction volume by month, use the following command
 
 ```sql
-SELECT 
-    date_trunc('month', to_timestamp(block_time)), 
-    count(*) 
-FROM 
-    contract 
-WHERE 
-    lower(address) = '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d' 
-    AND event_signature = 'Transfer(address,address,uint256)' 
-GROUP BY 
+SELECT
+    date_trunc('month', to_timestamp(block_time)),
+    count(*)
+FROM
+    contract
+WHERE
+    lower(address) = '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d'
+    AND event_signature = 'Transfer(address,address,uint256)'
+GROUP BY
     1;
 ```
 
 The result should be
 
-| date_trunc(month, to_timestamp(block_time)) | count(*) |
-| -------------------------------------------- | ------- |
-| 2021-05-01 | 1742 |
-| 2022-04-01 | 352 |
-| 2023-03-01 | 1622 |
-| 2022-07-01 | 244 |
-| 2023-01-01 | 2556 |
-| 2021-12-01 | 262 |
-| 2021-10-01 | 190 |
-| 2022-06-01 | 257 |
-| 2022-02-01 | 205 |
-| 2022-08-01 | 285 |
-| 2021-07-01 | 357 |
-| 2022-10-01 | 225 |
-| 2021-11-01 | 219 |
-| 2022-11-01 | 334 |
-| 2021-08-01 | 563 |
-| 2021-06-01 | 727 |
-| 2023-04-01 | 121 |
-| 2022-12-01 | 1566 |
-| 2022-01-01 | 272 |
-| 2022-05-01 | 426 |
-| 2022-03-01 | 415 |
-| 2021-04-01 | 48 |
-| 2021-09-01 | 257 |
-| 2023-02-01 | 1950 |
-| 2022-09-01 | 245 |
+| date_trunc(month, to_timestamp(block_time)) | count(\*) |
+| ------------------------------------------- | --------- |
+| 2021-05-01                                  | 1742      |
+| 2022-04-01                                  | 352       |
+| 2023-03-01                                  | 1622      |
+| 2022-07-01                                  | 244       |
+| 2023-01-01                                  | 2556      |
+| 2021-12-01                                  | 262       |
+| 2021-10-01                                  | 190       |
+| 2022-06-01                                  | 257       |
+| 2022-02-01                                  | 205       |
+| 2022-08-01                                  | 285       |
+| 2021-07-01                                  | 357       |
+| 2022-10-01                                  | 225       |
+| 2021-11-01                                  | 219       |
+| 2022-11-01                                  | 334       |
+| 2021-08-01                                  | 563       |
+| 2021-06-01                                  | 727       |
+| 2023-04-01                                  | 121       |
+| 2022-12-01                                  | 1566      |
+| 2022-01-01                                  | 272       |
+| 2022-05-01                                  | 426       |
+| 2022-03-01                                  | 415       |
+| 2021-04-01                                  | 48        |
+| 2021-09-01                                  | 257       |
+| 2023-02-01                                  | 1950      |
+| 2022-09-01                                  | 245       |
 
 ### Visualize result through Databend worksheet
 
 Databend Cloud natively provided a sort of visualization toolkits on worksheet.
 
-![Databend](./imgs/goldsky_databend.png "databend worksheet")
+![Databend](./imgs/goldsky_databend.png 'databend worksheet')
