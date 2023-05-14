@@ -2,17 +2,15 @@
 title: Databend Cloud
 ---
 
-In this document we'll show how to set up a simple data pipeline to load data from indexed.xyz to databend cloud and perform data analysis through SQL.
+In this document we'll show how to set up a simple data pipeline to load data from indexed.xyz to Databend Cloud and perform analysis with SQL.
 
-Currently we are under Beta Access and You could easily take a trial on databend cloud thourgh the [link](https://app.databend.com/)
+Currently, Databend Cloud is under beta access, and offers a trial with $200 credit on their [homepage](https://app.databend.com/)
 
 ## Load data from indexed.xyz
 
-Currently all files stored in indexed.xyz in under [cloudflare R2](https://www.cloudflare.com/products/r2/), and we are using prefix `9d` for the demo.
+Indexed.xyz file sare stored in [cloudflare R2](https://www.cloudflare.com/products/r2/), and for this example, we'll be using the prefix `9d` for the demo. We can set up a Databend [worksheet](https://docs.databend.com/using-databend-cloud/worksheet) to run all queries with an XSmall instance.
 
-We would use databend [worksheet](https://docs.databend.com/using-databend-cloud/worksheet) to run all queries with the XSmall instance.
-
-At First, we need to add indexed.xyz R2 as a databend [stage](https://docs.databend.com/sql/sql-commands/ddl/stage/).
+First, we need to add indexed.xyz R2 as a Databend [stage](https://docs.databend.com/sql/sql-commands/ddl/stage/).
 
 ```sql
 CREATE STAGE r2_stage
@@ -25,13 +23,13 @@ CONNECTION = (
 );
 ```
 
-You could take a look on loaded files through
+You can take a look at the loaded files with the following command:
 
 ```sql
 LIST @r2_stage;
 ```
 
-the data file looks like:
+This should return something like the following table:
 
 | name                                                                  | size    | md5                              | last_modified                 | creator |
 | --------------------------------------------------------------------- | ------- | -------------------------------- | ----------------------------- | ------- |
@@ -45,7 +43,7 @@ the data file looks like:
 
 ### Create contract table
 
-Build the target table using the following SQL
+Build the target table using the following SQL:
 
 ```sql
 CREATE DATABASE indexedxyz;
@@ -74,13 +72,11 @@ CREATE TABLE `contract` (
 COPY INTO contract FROM @r2_stage FILE_FORMAT = (type = PARQUET);
 ```
 
-The above command is idempotent, once file loaded into contract table, redo copy into would not load the file again.
-
-Once data loaded into the `contract` table(expect around 1 to 10 minutes), we could start to take some query on it.
+The above command is idempotent, once files are loaded into the contract table, redoing the copy would not load the file again. Once data is loaded into the `contract` table (typically takes 1-10 minutes), we can start to query it.
 
 ## Counting the tokens
 
-We could check on the minted token for Bored Ape Yacht Club under partition `9d` by querying the data:
+We could check on BAYC mints under the partiion `9d` by querying the data:
 
 ```sql
 SELECT COUNT(DISTINCT(CAST(event_params[3] AS INTEGER)))
@@ -93,7 +89,7 @@ WHERE LOWER(address) = '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d'
 | count() |
 | 5374 |
 
-And if we want to check on the transaction volume by month, use the following command
+And if we want to check on the transaction volume by month, we can use the following command:
 
 ```sql
 SELECT
@@ -108,7 +104,7 @@ GROUP BY
     1;
 ```
 
-The result should be
+The result should be:
 
 | date_trunc(month, to_timestamp(block_time)) | count(\*) |
 | ------------------------------------------- | --------- |
@@ -138,8 +134,8 @@ The result should be
 | 2023-02-01                                  | 1950      |
 | 2022-09-01                                  | 245       |
 
-### Visualize result through Databend worksheet
+### Visualize results through Databend worksheet
 
-Databend Cloud natively provided a sort of visualization toolkits on worksheet.
+Databend Cloud natively provides a visualization toolkits on worksheets.
 
 ![Databend](./imgs/goldsky_databend.png 'databend worksheet')
