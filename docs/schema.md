@@ -36,7 +36,7 @@ console.log(prefix);
 
 Finally, the data is further partitioned by year. In most tools you can leave that part of the prefix off and download all years recursively, but to limit downloads and local storage, you may want to pull a smaller subset of the data to get started.
 
-## Data Schema
+## Decoded Logs
 
 The objects in R2 are [Parquet](https://parquet.apache.org) files.
 
