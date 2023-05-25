@@ -42,20 +42,20 @@ The objects in R2 are [Parquet](https://parquet.apache.org) files.
 
 The Parquet file scheme we're using is:
 
-| column_name       | column_type | null |
-| ----------------- | ----------- | ---- |
-| block_time        | BIGINT      | YES  |
-| address           | VARCHAR     | YES  |
-| event_signature   | VARCHAR     | YES  |
-| event_params      | VARCHAR[]   | YES  |
-| block_number      | BIGINT      | YES  |
-| block_hash        | VARCHAR     | YES  |
-| log_index         | BIGINT      | YES  |
-| transaction_hash  | VARCHAR     | YES  |
-| transaction_index | BIGINT      | YES  |
-| data              | VARCHAR     | YES  |
-| topics            | VARCHAR     | YES  |
-| id                | VARCHAR     | YES  |
+| column_name       | column_type |
+| ----------------- | ----------- |
+| block_time        | BIGINT      |
+| address           | VARCHAR     |
+| event_signature   | VARCHAR     |
+| event_params      | VARCHAR[]   |
+| block_number      | BIGINT      |
+| block_hash        | VARCHAR     |
+| log_index         | BIGINT      |
+| transaction_hash  | VARCHAR     |
+| transaction_index | BIGINT      |
+| data              | VARCHAR     |
+| topics            | VARCHAR     |
+| id                | VARCHAR     |
 
 Here’s an example from one of the files, queried using [DuckDB](https://duckdb.org):
 
@@ -71,3 +71,64 @@ Some caveats to keep in mind:
 
 - We're still validating this dataset.
 - Though the prefix key we use is based on an all-lowercased address, and md5 digest, the addresses within the parquet files do not have a consistent case in all the fields.
+
+## Raw Blocks
+
+| column_name       | column_type |
+| ----------------- | ----------- |
+| id                | VARCHAR     |
+| number            | BIGINT      |
+| hash              | VARCHAR     |
+| parent_hash       | VARCHAR     |
+| nonce             | VARCHAR     |
+| sha3_uncles       | VARCHAR     |
+| logs_bloom        | VARCHAR     |
+| transactions_root | VARCHAR     |
+| state_root        | VARCHAR     |
+| receipts_root     | VARCHAR     |
+| miner             | VARCHAR     |
+| difficulty        | DOUBLE      |
+| total_difficulty  | DOUBLE      |
+| size              | BIGINT      |
+| extra_data        | VARCHAR     |
+| gas_limit         | BIGINT      |
+| gas_used          | BIGINT      |
+| timestamp         | BIGINT      |
+| transaction_count | BIGINT      |
+| base_fee_per_gas  | BIGINT      |
+
+## Raw Transactions
+
+| column_name              | column_type |
+| ------------------------ | ----------- |
+| id                       | VARCHAR     |
+| hash                     | VARCHAR     |
+| nonce                    | BIGINT      |
+| block_hash               | VARCHAR     |
+| block_number             | BIGINT      |
+| transaction_index        | BIGINT      |
+| from_address             | VARCHAR     |
+| to_address               | VARCHAR     |
+| value                    | VARCHAR     |
+| gas                      | VARCHAR     |
+| gas_price                | VARCHAR     |
+| input                    | VARCHAR     |
+| max_fee_per_gas          | VARCHAR     |
+| max_priority_fee_per_gas | VARCHAR     |
+| transaction_type         | BIGINT      |
+| block_timestamp          | BIGINT      |
+
+## Raw Logs
+
+| column_name       | column_type |
+| ----------------- | ----------- |
+| block_time        | BIGINT      |
+| block_number      | BIGINT      |
+| block_hash        | VARCHAR     |
+| transaction_hash  | VARCHAR     |
+| transaction_index | BIGINT      |
+| log_index         | BIGINT      |
+| address           | VARCHAR     |
+| data              | VARCHAR     |
+| topics            | VARCHAR     |
+| id                | VARCHAR     |
