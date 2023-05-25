@@ -75,7 +75,7 @@ Some caveats to keep in mind:
 
 ## Raw Blocks
 
-|    column_name    | column_type |
+| column_name       | column_type |
 |-------------------|-------------|
 | id                | VARCHAR     |
 | number            | BIGINT      |
@@ -100,7 +100,7 @@ Some caveats to keep in mind:
 
 ## Raw Transactions
 
-|       column_name        | column_type |
+| column_name.             | column_type |
 |--------------------------|-------------|
 | id                       | VARCHAR     |
 | hash                     | VARCHAR     |
@@ -121,7 +121,7 @@ Some caveats to keep in mind:
 
 ## Raw Logs
 
-|    column_name    | column_type |
+| column_name       | column_type |
 |-------------------|-------------|
 | block_time        | BIGINT      |
 | block_number      | BIGINT      |
