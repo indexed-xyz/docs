@@ -72,7 +72,6 @@ Some caveats to keep in mind:
 - We're still validating this dataset.
 - Though the prefix key we use is based on an all-lowercased address, and md5 digest, the addresses within the parquet files do not have a consistent case in all the fields.
 
-
 ## Raw Blocks
 
 | column_name       | column_type |
