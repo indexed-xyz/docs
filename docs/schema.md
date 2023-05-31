@@ -132,3 +132,36 @@ Some caveats to keep in mind:
 | data              | VARCHAR     |
 | topics            | VARCHAR     |
 | id                | VARCHAR     |
+
+## Arweave Raw Blocks
+
+| column_name    | column_type |
+| -------------- | ----------- |
+| id             | VARCHAR     |
+| height         | INTEGER     |
+| mined_at       | TIMESTAMP   |
+| created_at     | TIMESTAMP   |
+| previous_block | VARCHAR     |
+| mined_at_utc   | BIGINT      |
+
+## Arweave Raw Transactions
+
+| column_name   | column_type |
+| ------------- | ----------- |
+| id            | VARCHAR     |
+| owner         | VARCHAR     |
+| tags          | VARCHAR     |
+| target        | VARCHAR     |
+| quantity      | VARCHAR     |
+| reward        | VARCHAR     |
+| signature     | VARCHAR     |
+| last_tx       | VARCHAR     |
+| data_size     | BIGINT      |
+| content_type  | VARCHAR     |
+| format        | INTEGER     |
+| created_at    | TIMESTAMP   |
+| deleted_at    | TIMESTAMP   |
+| height        | INTEGER     |
+| owner_address | VARCHAR     |
+| data_root     | VARCHAR     |
+| parent        | VARCHAR     |
