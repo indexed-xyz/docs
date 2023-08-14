@@ -4,12 +4,13 @@ sidebar_position: 3
 
 # Supported Chains
 
-Currently, the following chains are supported:
+Currently, the following chains are supported, the name in parenthesis is the path name in R2.
 
-- Ethereum
-- Gnosis
-- Base (testnet)
-- Arweave
+- Ethereum (ethereum)
+- Gnosis (gnosis)
+- Base (base-goerli)
+- Arweave (arweave)
+- Linea (linea)
 
 # Requesting Support
 
