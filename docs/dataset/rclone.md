@@ -11,7 +11,7 @@ provider = Cloudflare
 access_key_id = 43c31ff797ec2387177cabab6d18f15a
 secret_access_key = afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645fb284cf7
 region = auto
-endpoint = https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com
+endpoint = https://data.indexed.xyz
 ```
 
 ## rclone configuration inputs
@@ -21,7 +21,7 @@ Follow the instructions linked above. You will need three inputs specific to the
 ```
 access_key_id = 43c31ff797ec2387177cabab6d18f15a
 secret_access_key = afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645fb284cf7
-endpoint = https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com
+endpoint = https://data.indexed.xyz
 ```
 
 ## Downloading with rclone

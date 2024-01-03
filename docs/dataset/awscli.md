@@ -17,7 +17,7 @@ aws_secret_access_key = afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645
 To retrieve the files using the AWS cli tools, you can then run the following command in a terminal with the provided credentials:
 
 ```bash
-$ aws s3 cp --endpoint-url https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com --profile indexedxyz s3://indexed-xyz/ethereum/decoded/logs/v1.2.0/partition_key=9d/ . --recursive
+$ aws s3 cp --endpoint-url https://data.indexed.xyz --profile indexedxyz s3://indexed-xyz/ethereum/decoded/logs/v1.2.0/partition_key=9d/ . --recursive
 ```
 
 This will download the Parquet files into the current directory.
