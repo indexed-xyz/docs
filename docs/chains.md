@@ -6,11 +6,14 @@ sidebar_position: 3
 
 Currently, the following chains are supported, the name in parenthesis is the path name in R2.
 
-- Ethereum (ethereum)
+- Arweave (arweave) - blocks and transactions are still backfilling
+- Ethereum (ethereum) - decoded logs are still backfilling
 - Gnosis (gnosis)
-- Base (base-goerli)
-- Arweave (arweave)
 - Linea (linea)
+- Optimism (optimism)
+- PGN (pgn)
+- zkSync (zksync) - decoded logs are still backfilling
+- Zora (zora)
 
 # Requesting Support
 
