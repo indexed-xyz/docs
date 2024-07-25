@@ -27,7 +27,7 @@ The Parquet file scheme we're using is:
 
 | column_name       | column_type |
 | ----------------- | ----------- |
-| block_time        | BIGINT      |
+| block_timestam    | BIGINT      |
 | address           | VARCHAR     |
 | event_signature   | VARCHAR     |
 | event_params      | VARCHAR[]   |
@@ -39,6 +39,7 @@ The Parquet file scheme we're using is:
 | data              | VARCHAR     |
 | topics            | VARCHAR     |
 | id                | VARCHAR     |
+| dt                | VARCHAR     |
 
 Here’s an example from one of the files, queried using [DuckDB](https://duckdb.org):
 
@@ -79,6 +80,7 @@ Some caveats to keep in mind:
 | timestamp         | BIGINT      |
 | transaction_count | BIGINT      |
 | base_fee_per_gas  | BIGINT      |
+| dt                | VARCHAR     |
 
 ## Raw Transactions
 
@@ -100,12 +102,13 @@ Some caveats to keep in mind:
 | max_priority_fee_per_gas | VARCHAR     |
 | transaction_type         | BIGINT      |
 | block_timestamp          | BIGINT      |
+| dt                       | VARCHAR     |
 
 ## Raw Logs
 
 | column_name       | column_type |
 | ----------------- | ----------- |
-| block_time        | BIGINT      |
+| block_timestamp   | BIGINT      |
 | block_number      | BIGINT      |
 | block_hash        | VARCHAR     |
 | transaction_hash  | VARCHAR     |
@@ -115,6 +118,7 @@ Some caveats to keep in mind:
 | data              | VARCHAR     |
 | topics            | VARCHAR     |
 | id                | VARCHAR     |
+| dt                | VARCHAR     |
 
 ## Arweave Raw Blocks
 
