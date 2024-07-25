@@ -6,8 +6,8 @@ First, you’ll need to add the account and secret key for the indexed.xyz R2 bu
 
 ```
 [indexedxyz]
-aws_access_key_id = 094c97e8d9532a90e8b04a910e27e34b
-aws_secret_access_key = 9ecf4202fe4c67127e1ce6656626f094585e27494a51d57f457cfff410307ef4
+aws_access_key_id = 43c31ff797ec2387177cabab6d18f15a
+aws_secret_access_key = afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645fb284cf7
 ```
 
 ## Downloading with the AWS CLI tools
