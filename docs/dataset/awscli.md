@@ -6,8 +6,8 @@ First, you’ll need to add the account and secret key for the indexed.xyz R2 bu
 
 ```
 [indexedxyz]
-aws_access_key_id = 43c31ff797ec2387177cabab6d18f15a
-aws_secret_access_key = afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645fb284cf7
+aws_access_key_id = 094c97e8d9532a90e8b04a910e27e34b
+aws_secret_access_key = 9ecf4202fe4c67127e1ce6656626f094585e27494a51d57f457cfff410307ef4
 ```
 
 ## Downloading with the AWS CLI tools
@@ -17,9 +17,9 @@ aws_secret_access_key = afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645
 To retrieve the files using the AWS cli tools, you can then run the following command in a terminal with the provided credentials:
 
 ```bash
-$ aws s3 cp --endpoint-url https://data.indexed.xyz --profile indexedxyz s3://indexed-xyz/ethereum/decoded/logs/v1.2.0/partition_key=9d/ . --recursive
+$ aws s3 cp --endpoint-url https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com --profile indexedxyz s3://indexed-xyz-wnam/ethereum/raw/logs/v2.0.0/dt=2020-02-20/  . --recursive
 ```
 
 This will download the Parquet files into the current directory.
 
-> Keep in mind that since the partition keys are only two digits, the partitions will contain data for multiple smart contracts, not necessarily just the one that you’re looking for.
+> Keep in mind that since the data is partitioned by day, the download will contain data for multiple smart contracts, not necessarily just the one that you’re looking for.

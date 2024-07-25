@@ -11,30 +11,13 @@ We're hosting indexed.xyz on Cloudflare's R2. R2 has an S3 API, so you can grab 
 
 The prefix structure for data in R2 is:
 
-`s3://indexed-xyz/<chain>/(decoded|raw)/logs/v1.2.0/partition_key=<XX>/dt=<YYYY>`
+`s3://indexed-xyz-wnam/<chain>/(decoded|raw)/logs/v2.0.0/dt=<yyyy-MM-dd>`
 
-For now, the only chain available is ethereum (without the angle brackets), though we will be expanding that as we go, if there's a chain you would like to see, shoot us an [email](mailto:support@goldsky.com) and we'll consider adding it.
+Right now [these chains](chains.md) are supported, but if you'd like to see other chains here, shoot us an [email](mailto:support@goldsky.com) and we'll consider adding it.
 
 You'll probably want the decoded files, as that's what this document describes.
 
-The partition key is a two digit hexadecimal value that's chosen based on the lower-cased md5 hash of the lower-cased smart contract address.
-
-For example:
-
-```javascript
-const crypto = require('crypto');
-const contract = '0x22c1f6050e56d2876009903609a2cc3fef83b415';
-const prefix = crypto
-  .createHash('md5')
-  .update(`${contract}`)
-  .digest('hex')
-  .slice(-2);
-
-console.log(prefix);
-// e4
-```
-
-Finally, the data is further partitioned by year. In most tools you can leave that part of the prefix off and download all years recursively, but to limit downloads and local storage, you may want to pull a smaller subset of the data to get started.
+The data is partitioned by day. In most tools you can leave that part of the prefix off and download all data recursively, but to limit downloads and local storage, you may want to pull a smaller subset of the data to get started.
 
 ## Decoded Logs
 
@@ -44,7 +27,7 @@ The Parquet file scheme we're using is:
 
 | column_name       | column_type |
 | ----------------- | ----------- |
-| block_time        | BIGINT      |
+| block_timestam    | BIGINT      |
 | address           | VARCHAR     |
 | event_signature   | VARCHAR     |
 | event_params      | VARCHAR[]   |
@@ -56,6 +39,7 @@ The Parquet file scheme we're using is:
 | data              | VARCHAR     |
 | topics            | VARCHAR     |
 | id                | VARCHAR     |
+| dt                | VARCHAR     |
 
 Here’s an example from one of the files, queried using [DuckDB](https://duckdb.org):
 
@@ -96,6 +80,7 @@ Some caveats to keep in mind:
 | timestamp         | BIGINT      |
 | transaction_count | BIGINT      |
 | base_fee_per_gas  | BIGINT      |
+| dt                | VARCHAR     |
 
 ## Raw Transactions
 
@@ -117,12 +102,13 @@ Some caveats to keep in mind:
 | max_priority_fee_per_gas | VARCHAR     |
 | transaction_type         | BIGINT      |
 | block_timestamp          | BIGINT      |
+| dt                       | VARCHAR     |
 
 ## Raw Logs
 
 | column_name       | column_type |
 | ----------------- | ----------- |
-| block_time        | BIGINT      |
+| block_timestamp   | BIGINT      |
 | block_number      | BIGINT      |
 | block_hash        | VARCHAR     |
 | transaction_hash  | VARCHAR     |
@@ -132,6 +118,7 @@ Some caveats to keep in mind:
 | data              | VARCHAR     |
 | topics            | VARCHAR     |
 | id                | VARCHAR     |
+| dt                | VARCHAR     |
 
 ## Arweave Raw Blocks
 
