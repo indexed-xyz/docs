@@ -33,10 +33,10 @@ http:
 input:
   label: ''
   aws_s3:
-    bucket: 'indexed-xyz'
+    bucket: 'indexed-xyz-wnam'
     region: 'auto'
-    prefix: 'ethereum/decoded/logs/v1.2.0/partition_key=9d/'
-    endpoint: 'https://data.indexed.xyz'
+    prefix: '/ethereum/raw/logs/v2.0.0/dt=2020-02-20/'
+    endpoint: 'https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com'
     credentials:
       id: 43c31ff797ec2387177cabab6d18f15a
       secret: afb354f05026f2512557922974e9dd2fdb21e5c2f5cbf929b35f0645fb284cf7
