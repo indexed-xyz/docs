@@ -12,6 +12,7 @@ Currently, the following chains are supported, the name in parenthesis is the pa
 - Linea (linea)
 - Optimism (optimism)
 - PGN (pgn)
+- Sui (sui)
 - zkSync (zksync) - decoded logs are still backfilling
 - Zora (zora)
 
